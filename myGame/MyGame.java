@@ -404,14 +404,33 @@ public class MyGame extends VariableFrameRateGame {
 
         im.associateAction(kbName,
             net.java.games.input.Component.Identifier.Key.W,
-            moveUpAction,
+            moveForwardAction,
             InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 
         im.associateAction(kbName,
             net.java.games.input.Component.Identifier.Key.S,
-            moveDownAction,
+            moveBackwardAction,
             InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 
+        im.associateAction(kbName,
+            net.java.games.input.Component.Identifier.Key.LEFT,
+            rotateLeftAction,
+            InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+
+        im.associateAction(kbName,
+            net.java.games.input.Component.Identifier.Key.RIGHT,
+            rotateRightAction,
+            InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+
+        im.associateAction(kbName,
+            net.java.games.input.Component.Identifier.Key.UP,
+            rotateUpAction,
+            InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+
+        im.associateAction(kbName,
+            net.java.games.input.Component.Identifier.Key.DOWN,
+            rotateDownAction,
+            InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
     }
 
 
