@@ -7,6 +7,7 @@ import java.nio.*;
 import java.util.*;
 import java.util.ArrayList;
 import net.java.games.input.Controller;
+import net.java.games.input.*;
 
 import ray.rage.*;
 import ray.rage.game.*;
@@ -207,11 +208,12 @@ public class MyGame extends VariableFrameRateGame {
 
         // Check which controller is connected
         for (Controller c : controllers) {
-            if (c.getType() == Controller.Type.KEYBOARD)
+            if (c.getType() == Controller.Type.KEYBOARD){
                 keyboardControls(c);
-            else if (c.getType() == Controller.Type.GAMEPAD || c.getType() == Controller.Type.STICK)
+            } else if (c.getType() == Controller.Type.GAMEPAD || c.getType() == Controller.Type.STICK) {
                 gamepadControls(c);
         }
+    }
 
         // build some action objects
         quitGameAction = new QuitGameAction(this);
@@ -320,11 +322,6 @@ public class MyGame extends VariableFrameRateGame {
     void gamepadControls(Controller gpName) {
           // attach the action objects to keyboard and gamepad components
         im.associateAction(gpName,
-            net.java.games.input.Component.Identifier.Button._3,
-            moveForwardAction,
-            InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-
-        im.associateAction(gpName,
           net.java.games.input.Component.Identifier.Button._3,
           moveForwardAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
@@ -333,14 +330,14 @@ public class MyGame extends VariableFrameRateGame {
           net.java.games.input.Component.Identifier.Button._1,
           moveBackwardAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-      
+
       im.associateAction(gpName,
-          net.java.games.input.Component.Identifier.Button._0,
+          net.java.games.input.Component.Identifier.Axis.X,
           moveLeftAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 
        im.associateAction(gpName,
-          net.java.games.input.Component.Identifier.Button._2,
+          net.java.games.input.Component.Identifier.Axis.Z,
           moveRightAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 
@@ -384,10 +381,11 @@ public class MyGame extends VariableFrameRateGame {
           rotateUpAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 
-          im.associateAction(gpName,
-          net.java.games.input.Component.Identifier.Button._12 ,
+        im.associateAction(gpName,
+          net.java.games.input.Component.Identifier.Button._15 ,
           rotateDownAction,
           InputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);  
+
     }
 
     void keyboardControls(Controller kbName) {
